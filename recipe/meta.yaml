@@ -10,7 +10,7 @@ source:
   sha256: 48c6fdf98396fa245ed86e622028caf49b96fa22f3e5734f853f806fbc8e7d20
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
