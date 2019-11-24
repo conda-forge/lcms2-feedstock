@@ -29,14 +29,14 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/include/lcms2.h # [not win]
-    - test -f ${PREFIX}/lib/liblcms2.a # [not win]
-    - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT} # [not win]
-    - jpgicc # [not win]
-    - tificc # [not win]
-    - linkicc # [not win]
-    - transicc # [not win]
-    - psicc # [not win]
+    - test -f ${PREFIX}/include/lcms2.h  # [not win]
+    - test -f ${PREFIX}/lib/liblcms2.a  # [not win]
+    - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT}  # [not win]
+    - jpgicc  # [not win]
+    - tificc  # [not win]
+    - linkicc  # [not win]
+    - transicc  # [not win]
+    - psicc  # [not win]
     - if not exist %PREFIX%\\include\\lcms2.h exit 1  # [win]
     - if not exist %PREFIX%\\lib\\lcms.lib exit 1  # [win]
     - if not exist %PREFIX%\\bin\\lcms.dll exit 1  # [win]
