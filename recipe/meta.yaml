@@ -11,23 +11,24 @@ source:
 
 build:
   number: 1
-  skip: True  # [win]
+  skip: True  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - make
+    - make  # [not win]
+    - autotools_clang_conda  # [win]
   host:
     - jpeg
     - libtiff
 
 test:
   commands:
-    - test -f ${PREFIX}/include/lcms2.h
-    - test -f ${PREFIX}/lib/liblcms2.a
-    - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT}
+    - test -f ${PREFIX}/include/lcms2.h   # [not win]
+    - test -f ${PREFIX}/lib/liblcms2.a    # [not win]
+    - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT}   # [not win]
     - jpgicc
     - tificc
     - linkicc
