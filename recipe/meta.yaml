@@ -32,9 +32,10 @@ requirements:
     - m2-bash                      # [win]
     - m2-patch                     # [win]
   host:
-    # First pass, not building with jpeg and libtiff on windows
-    - jpeg      # [not win]
-    - libtiff   # [not win]
+    - libtiff
+    # We have trouble compiling with jpeg support on windows
+    # https://github.com/conda-forge/jpeg-feedstock/issues/19
+    - jpeg   # [not win]
 
 test:
   commands:
@@ -44,8 +45,8 @@ test:
     - linkicc
     - transicc
     - psicc
-    - jpgicc                                      # [not win]
-    - tificc                                      # [not win]
+    - tificc
+    - jpgicc  # [not win]
 
 about:
   home: http://www.littlecms.com/
