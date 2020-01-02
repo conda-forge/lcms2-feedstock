@@ -8,31 +8,45 @@ package:
 source:
   url: https://ayera.dl.sourceforge.net/project/lcms/lcms/{{ version }}/lcms2-{{ version }}.tar.gz
   sha256: 48c6fdf98396fa245ed86e622028caf49b96fa22f3e5734f853f806fbc8e7d20
+  patches:
+    - include_io_mingw.patch  # [win]
+    # Not sure why I can't get this one to compile
+    # - disable_testbed.patch  # [win]
 
 build:
   number: 1
-  skip: True  # [win]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - make
+    - {{ compiler('c') }}  # [unix]
+    - make                 # [unix]
+    # Adapted from https://github.com/conda-forge/iverilog-feedstock/tree/master/recipe
+    # - {{ compiler('m2w64_c') }}    # [win]
+    # - {{ compiler('m2w64_cxx') }}  # [win]
+    - m2w64-toolchain              # [win]
+    - m2-autoconf                  # [win]
+    - m2-make                      # [win]
+    - m2-grep                      # [win]
+    - m2-sed                       # [win]
+    - m2-bash                      # [win]
+    - m2-patch                     # [win]
   host:
-    - jpeg
-    - libtiff
+    # First pass, not building with jpeg and libtiff on windows
+    - jpeg      # [not win]
+    - libtiff   # [not win]
 
 test:
   commands:
-    - test -f ${PREFIX}/include/lcms2.h
-    - test -f ${PREFIX}/lib/liblcms2.a
-    - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT}
-    - jpgicc
-    - tificc
+    - test -f ${PREFIX}/include/lcms2.h           # [unix]
+    - test -f ${PREFIX}/lib/liblcms2.a            # [unix]
+    - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT}  # [unix]
     - linkicc
     - transicc
     - psicc
+    - jpgicc                                      # [not win]
+    - tificc                                      # [not win]
 
 about:
   home: http://www.littlecms.com/
