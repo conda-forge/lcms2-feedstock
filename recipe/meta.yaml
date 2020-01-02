@@ -9,9 +9,8 @@ source:
   url: https://ayera.dl.sourceforge.net/project/lcms/lcms/{{ version }}/lcms2-{{ version }}.tar.gz
   sha256: 48c6fdf98396fa245ed86e622028caf49b96fa22f3e5734f853f806fbc8e7d20
   patches:
-    - include_io_mingw.patch  # [win]
-    # Not sure why I can't get this one to compile
-    # - disable_testbed.patch  # [win]
+    # https://github.com/mm2/Little-CMS/pull/194
+    - 194-include_io_mingw.patch  # [win]
 
 build:
   number: 1

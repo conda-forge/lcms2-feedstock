@@ -1,0 +1,27 @@
+From afe94bf4420a185d4357bb937ac0f76f65b846f8 Mon Sep 17 00:00:00 2001
+From: Mark Harfouche <mark.harfouche@gmail.com>
+Date: Wed, 1 Jan 2020 19:43:15 -0500
+Subject: [PATCH] Ensure compatibility with mingw
+
+---
+ testbed/testcms2.h | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/testbed/testcms2.h b/testbed/testcms2.h
+index 2ce6bfa..bd83b32 100755
+--- a/testbed/testcms2.h
++++ b/testbed/testcms2.h
+@@ -30,10 +30,12 @@
+ #ifdef _MSC_VER
+ #    define _CRT_SECURE_NO_WARNINGS 1
+ #     include "crtdbg.h"
+-#     include <io.h>
+ #endif
+ 
+ #include "lcms2_internal.h"
++#ifdef CMS_IS_WINDOWS_
++#     include <io.h>
++#endif
+ 
+ #define cmsmin(a, b) (((a) < (b)) ? (a) : (b))
+ 
