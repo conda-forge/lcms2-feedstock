@@ -38,8 +38,8 @@ test:
     - transicc
     - psicc
     - if not exist %LIBRARY_INC%\\lcms2.h exit 1  # [win]
-    - if not exist %LIBRARY_LIB%\\lcms.lib exit 1  # [win]
-    - if not exist %LIBRARY_BIN%\\lcms.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\lcms2.lib exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\\lcms2.dll exit 1  # [win]
 
 about:
   home: http://www.littlecms.com/
