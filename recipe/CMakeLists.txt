@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.5)
 
 option(CMAKE_VERBOSE_MAKEFILE "Create verbose makefile" OFF)
-option(BUILD_SHARED_LIBS "Create lcms as a shared library" ON)
+option(BUILD_SHARED_LIBS "Create lcms2 as a shared library" ON)
 
 project(little-cms)
 
 set(CMAKE_DEBUG_POSTFIX d)
 
-add_library(lcms
+add_library(lcms2
     "${CMAKE_CURRENT_LIST_DIR}/src/cmstypes.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/cmsvirt.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/cmswtpnt.c"
@@ -39,13 +39,13 @@ add_library(lcms
 )
 
 if(BUILD_SHARED_LIBS)
-    target_compile_options(lcms PRIVATE -DCMS_DLL_BUILD)
-    target_compile_options(lcms PUBLIC -DCMS_DLL)
+    target_compile_options(lcms2 PRIVATE -DCMS_DLL_BUILD)
+    target_compile_options(lcms2 PUBLIC -DCMS_DLL)
 endif()
 
-target_compile_options(lcms PRIVATE -DUNICODE -D_UNICODE)
-target_include_directories(lcms PRIVATE "${CMAKE_CURRENT_LIST_DIR}/include")
-set_target_properties(lcms PROPERTIES PUBLIC_HEADER "${CMAKE_CURRENT_LIST_DIR}/include/lcms2.h;${CMAKE_CURRENT_LIST_DIR}/include/lcms2_plugin.h")
+target_compile_options(lcms2 PRIVATE -DUNICODE -D_UNICODE)
+target_include_directories(lcms2 PRIVATE "${CMAKE_CURRENT_LIST_DIR}/include")
+set_target_properties(lcms2 PROPERTIES PUBLIC_HEADER "${CMAKE_CURRENT_LIST_DIR}/include/lcms2.h;${CMAKE_CURRENT_LIST_DIR}/include/lcms2_plugin.h")
 
 add_executable(jpgicc
     "${CMAKE_CURRENT_LIST_DIR}/utils/jpgicc/iccjpeg.c"
@@ -59,7 +59,7 @@ if (JPEG_FOUND)
   include_directories(${JPEG_INCLUDE_DIRS})
   target_link_libraries (jpgicc ${JPEG_LIBRARIES} -static)
 endif (JPEG_FOUND)
-target_link_libraries (jpgicc lcms -static)
+target_link_libraries (jpgicc lcms2 -static)
 target_include_directories(jpgicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
@@ -75,7 +75,7 @@ if (TIFF_FOUND)
   include_directories(${TIFF_INCLUDE_DIRS})
   target_link_libraries (tificc ${TIFF_LIBRARIES} -static)
 endif (TIFF_FOUND)
-target_link_libraries (tificc lcms -static)
+target_link_libraries (tificc lcms2 -static)
 target_include_directories(tificc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
@@ -86,7 +86,7 @@ add_executable(transicc
     "${CMAKE_CURRENT_LIST_DIR}/utils/common/vprf.c"
     "${CMAKE_CURRENT_LIST_DIR}/utils/common/xgetopt.c"
 )
-target_link_libraries (transicc lcms)
+target_link_libraries (transicc lcms2)
 target_include_directories(transicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
@@ -97,7 +97,7 @@ add_executable(linkicc
     "${CMAKE_CURRENT_LIST_DIR}/utils/common/vprf.c"
     "${CMAKE_CURRENT_LIST_DIR}/utils/common/xgetopt.c"
 )
-target_link_libraries (linkicc lcms)
+target_link_libraries (linkicc lcms2)
 target_include_directories(linkicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
@@ -108,14 +108,14 @@ add_executable(psicc
     "${CMAKE_CURRENT_LIST_DIR}/utils/common/vprf.c"
     "${CMAKE_CURRENT_LIST_DIR}/utils/common/xgetopt.c"
 )
-target_link_libraries (psicc lcms)
+target_link_libraries (psicc lcms2)
 target_include_directories(psicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
 )
 
-install(TARGETS lcms jpgicc tificc transicc linkicc psicc
-    EXPORT lcmsConfig
+install(TARGETS lcms2 jpgicc tificc transicc linkicc psicc
+    EXPORT lcms2Config
     RUNTIME DESTINATION "bin"
     LIBRARY DESTINATION "lib"
     ARCHIVE DESTINATION "lib"
@@ -123,12 +123,12 @@ install(TARGETS lcms jpgicc tificc transicc linkicc psicc
     COMPONENT dev
 )
 
-export(TARGETS lcms
-    NAMESPACE lcms::
-    FILE "share/lcms/lcmsConfig.cmake"
+export(TARGETS lcms2
+    NAMESPACE lcms2::
+    FILE "share/lcms2/lcms2Config.cmake"
 )
 
-install(EXPORT lcmsConfig
+install(EXPORT lcms2Config
     DESTINATION "cmake"
-    NAMESPACE lcms::
+    NAMESPACE lcms2::
 )
