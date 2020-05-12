@@ -129,6 +129,6 @@ export(TARGETS lcms
 )
 
 install(EXPORT lcmsConfig
-    DESTINATION "share/lcms"
+    DESTINATION "cmake"
     NAMESPACE lcms::
 )
