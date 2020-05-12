@@ -60,7 +60,7 @@ if (JPEG_FOUND)
   target_link_libraries (jpegicc ${JPEG_LIBRARIES} -static)
 endif (JPEG_FOUND)
 target_link_libraries (jpegicc lcms -static)
-target_include_directories(jpegicc PRIVATE 
+target_include_directories(jpegicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
 )
@@ -76,7 +76,7 @@ if (TIFF_FOUND)
   target_link_libraries (tifficc ${TIFF_LIBRARIES} -static)
 endif (TIFF_FOUND)
 target_link_libraries (tifficc lcms -static)
-target_include_directories(tifficc PRIVATE 
+target_include_directories(tifficc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
 )
@@ -87,7 +87,7 @@ add_executable(transicc
     "${CMAKE_CURRENT_LIST_DIR}/utils/common/xgetopt.c"
 )
 target_link_libraries (transicc lcms)
-target_include_directories(transicc PRIVATE 
+target_include_directories(transicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
 )
@@ -98,7 +98,7 @@ add_executable(linkicc
     "${CMAKE_CURRENT_LIST_DIR}/utils/common/xgetopt.c"
 )
 target_link_libraries (linkicc lcms)
-target_include_directories(linkicc PRIVATE 
+target_include_directories(linkicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
 )
@@ -109,7 +109,7 @@ add_executable(psicc
     "${CMAKE_CURRENT_LIST_DIR}/utils/common/xgetopt.c"
 )
 target_link_libraries (psicc lcms)
-target_include_directories(psicc PRIVATE 
+target_include_directories(psicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
 )
