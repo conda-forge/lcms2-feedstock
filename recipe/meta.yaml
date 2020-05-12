@@ -8,31 +8,44 @@ package:
 source:
   url: https://ayera.dl.sourceforge.net/project/lcms/lcms/{{ version }}/lcms2-{{ version }}.tar.gz
   sha256: 48c6fdf98396fa245ed86e622028caf49b96fa22f3e5734f853f806fbc8e7d20
+  patches:
+        - remove_library_directive_win.patch  # [win]
+        - build_shared_win.patch  # [win]
 
 build:
-  number: 1
-  skip: True  # [win]
+  skip: true  # [win and vc<14]
+  number: 2
   run_exports:
     - {{ pin_subpackage("lcms2") }}
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - make
+    - make  # [not win]
+    - cmake  # [win]
+
   host:
     - jpeg
     - libtiff
 
 test:
   commands:
-    - test -f ${PREFIX}/include/lcms2.h
-    - test -f ${PREFIX}/lib/liblcms2.a
-    - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT}
-    - jpgicc
-    - tificc
-    - linkicc
-    - transicc
-    - psicc
+    - test -f ${PREFIX}/include/lcms2.h  # [not win]
+    - test -f ${PREFIX}/lib/liblcms2.a  # [not win]
+    - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT}  # [not win]
+    - jpgicc  # [not win]
+    - tificc  # [not win]
+    - linkicc  # [not win]
+    - transicc  # [not win]
+    - psicc  # [not win]
+    - if not exist %PREFIX%\\include\\lcms2.h exit 1  # [win]
+    - if not exist %PREFIX%\\lib\\lcms.lib exit 1  # [win]
+    - if not exist %PREFIX%\\bin\\lcms.dll exit 1  # [win]
+    - call %PREFIX%\\bin\\jpegicc.exe  # [win]
+    - call %PREFIX%\\bin\\tifficc.exe  # [win]
+    - call %PREFIX%\\bin\\linkicc.exe  # [win]
+    - call %PREFIX%\\bin\\transicc.exe  # [win]
+    - call %PREFIX%\\bin\\psicc.exe  # [win]
 
 about:
   home: http://www.littlecms.com/
