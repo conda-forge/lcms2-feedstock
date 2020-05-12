@@ -47,7 +47,7 @@ target_compile_options(lcms PRIVATE -DUNICODE -D_UNICODE)
 target_include_directories(lcms PRIVATE "${CMAKE_CURRENT_LIST_DIR}/include")
 set_target_properties(lcms PROPERTIES PUBLIC_HEADER "${CMAKE_CURRENT_LIST_DIR}/include/lcms2.h;${CMAKE_CURRENT_LIST_DIR}/include/lcms2_plugin.h")
 
-add_executable(jpegicc
+add_executable(jpgicc
     "${CMAKE_CURRENT_LIST_DIR}/utils/jpgicc/iccjpeg.c"
     "${CMAKE_CURRENT_LIST_DIR}/utils/jpgicc/iccjpeg.h"
     "${CMAKE_CURRENT_LIST_DIR}/utils/jpgicc/jpgicc.c"
