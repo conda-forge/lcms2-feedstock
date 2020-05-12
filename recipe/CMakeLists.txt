@@ -65,7 +65,7 @@ target_include_directories(jpgicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/include"
 )
 
-add_executable(tifficc
+add_executable(tificc
     "${CMAKE_CURRENT_LIST_DIR}/utils/tificc/tificc.c"
     "${CMAKE_CURRENT_LIST_DIR}/utils/common/vprf.c"
     "${CMAKE_CURRENT_LIST_DIR}/utils/common/xgetopt.c"
@@ -73,10 +73,10 @@ add_executable(tifficc
 find_package (TIFF REQUIRED)
 if (TIFF_FOUND)
   include_directories(${TIFF_INCLUDE_DIRS})
-  target_link_libraries (tifficc ${TIFF_LIBRARIES} -static)
+  target_link_libraries (tificc ${TIFF_LIBRARIES} -static)
 endif (TIFF_FOUND)
-target_link_libraries (tifficc lcms -static)
-target_include_directories(tifficc PRIVATE
+target_link_libraries (tificc lcms -static)
+target_include_directories(tificc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
 )
@@ -114,7 +114,7 @@ target_include_directories(psicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/include"
 )
 
-install(TARGETS lcms jpgicc tifficc transicc linkicc psicc
+install(TARGETS lcms jpgicc tificc transicc linkicc psicc
     EXPORT lcmsConfig
     RUNTIME DESTINATION "bin"
     LIBRARY DESTINATION "lib"
