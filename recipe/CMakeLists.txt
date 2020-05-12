@@ -57,10 +57,10 @@ add_executable(jpgicc
 find_package (JPEG REQUIRED)
 if (JPEG_FOUND)
   include_directories(${JPEG_INCLUDE_DIRS})
-  target_link_libraries (jpegicc ${JPEG_LIBRARIES} -static)
+  target_link_libraries (jpgicc ${JPEG_LIBRARIES} -static)
 endif (JPEG_FOUND)
-target_link_libraries (jpegicc lcms -static)
-target_include_directories(jpegicc PRIVATE
+target_link_libraries (jpgicc lcms -static)
+target_include_directories(jpgicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/utils/common"
     "${CMAKE_CURRENT_LIST_DIR}/include"
 )
@@ -114,7 +114,7 @@ target_include_directories(psicc PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/include"
 )
 
-install(TARGETS lcms jpegicc tifficc transicc linkicc psicc
+install(TARGETS lcms jpgicc tifficc transicc linkicc psicc
     EXPORT lcmsConfig
     RUNTIME DESTINATION "bin"
     LIBRARY DESTINATION "lib"
