@@ -33,19 +33,14 @@ test:
     - test -f ${PREFIX}/include/lcms2.h  # [not win]
     - test -f ${PREFIX}/lib/liblcms2.a  # [not win]
     - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT}  # [not win]
-    - jpgicc  # [not win]
-    - tificc  # [not win]
-    - linkicc  # [not win]
-    - transicc  # [not win]
-    - psicc  # [not win]
+    - jpgicc
+    - tificc
+    - linkicc
+    - transicc
+    - psicc
     - if not exist %LIBRARY_INC%\\lcms2.h exit 1  # [win]
     - if not exist %LIBRARY_LIB%\\lcms.lib exit 1  # [win]
     - if not exist %LIBRARY_BIN%\\lcms.dll exit 1  # [win]
-    - call %PREFIX%\\bin\\jpegicc.exe  # [win]
-    - call %PREFIX%\\bin\\tifficc.exe  # [win]
-    - call %PREFIX%\\bin\\linkicc.exe  # [win]
-    - call %PREFIX%\\bin\\transicc.exe  # [win]
-    - call %PREFIX%\\bin\\psicc.exe  # [win]
 
 about:
   home: http://www.littlecms.com/
