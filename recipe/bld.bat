@@ -4,7 +4,7 @@ msbuild ^
   /p:Platform=x64 ^
   /p:Configuration=Release ^
   /p:AdditionalIncludeDirectories=%LIBRARY_INC% ^
-  /p:AdditionalLibraryDirectories=%LIBRARY_LIB% ^
+  /p:AdditionalDependencies=/LIBPATH:%LIBRARY_LIB% ^
   Projects\VC2017\lcms2.sln
 if errorlevel 1 exit 1
 
