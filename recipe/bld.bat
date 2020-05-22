@@ -1,3 +1,5 @@
+set UseEnv=true
+
 msbuild /p:Platform=x64 /p:Configuration=Release /p:AdditionalIncludeDirectories=%LIBRARY_INC% Projects\VC2017\lcms2.sln
 if errorlevel 1 exit 1
 
