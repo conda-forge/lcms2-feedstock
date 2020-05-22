@@ -1,6 +1,6 @@
 set UseEnv=true
 
-copy %LIBRARY_LIB%\tiff.lib %LIBRARY_LIB%\libtiff.lib
+REM copy %LIBRARY_LIB%\tiff.lib %LIBRARY_LIB%\libtiff.lib
 
 msbuild ^
   /p:Platform=x64 ^
