@@ -1,17 +1,20 @@
-COPY %RECIPE_DIR%\CMakeLists.txt %SRC_DIR%\CMakeLists.txt
-mkdir build
-cd build
-
-cmake -G "NMake Makefiles" ^
-      -DBUILD_SHARED_LIBS="1" ^
-      -DCMAKE_BUILD_TYPE="Release" ^
-      -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
-      ..
-
+msbuild Projects\VC2017\lcms2.sln
 if errorlevel 1 exit 1
 
-nmake
-if errorlevel 1 exit 1
+REM COPY %RECIPE_DIR%\CMakeLists.txt %SRC_DIR%\CMakeLists.txt
+REM mkdir build
+REM cd build
 
-nmake install
-if errorlevel 1 exit 1
+REM cmake -G "NMake Makefiles" ^
+REM       -DBUILD_SHARED_LIBS="1" ^
+REM       -DCMAKE_BUILD_TYPE="Release" ^
+REM       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
+REM       ..
+
+REM if errorlevel 1 exit 1
+
+REM nmake
+REM if errorlevel 1 exit 1
+
+REM nmake install
+REM if errorlevel 1 exit 1
