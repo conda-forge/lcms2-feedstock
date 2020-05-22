@@ -10,6 +10,11 @@ msbuild ^
   Projects\VC2017\lcms2.sln
 if errorlevel 1 exit 1
 
+dir
+dir bin
+dir include
+dir lib
+
 REM COPY %RECIPE_DIR%\CMakeLists.txt %SRC_DIR%\CMakeLists.txt
 REM mkdir build
 REM cd build
