@@ -22,8 +22,6 @@ requirements:
   build:
     - {{ compiler('c') }}
     - make  # [not win]
-    - cmake  # [win]
-
   host:
     - jpeg
     - libtiff
