@@ -25,8 +25,8 @@ COPY bin\lcms2.dll    %LIBRARY_BIN%\lcms2.dll
 
 COPY bin\lcms2.lib    %LIBRARY_LIB%\lcms2.lib
 
-COPY include\lcms2.h  %LIBRARY_LIB%\lcms2.h
-COPY include\lcms2_plugin.h  %LIBRARY_LIB%\lcms2_plugin.h
+COPY include\lcms2.h         %LIBRARY_INC%\lcms2.h
+COPY include\lcms2_plugin.h  %LIBRARY_INC%\lcms2_plugin.h
 
 
 REM COPY %RECIPE_DIR%\CMakeLists.txt %SRC_DIR%\CMakeLists.txt
