@@ -1,7 +1,5 @@
 set UseEnv=true
 
-REM copy %LIBRARY_LIB%\tiff.lib %LIBRARY_LIB%\libtiff.lib
-
 msbuild ^
   /p:Platform=x64 ^
   /p:Configuration=Release ^
@@ -10,10 +8,14 @@ msbuild ^
   Projects\VC2017\lcms2.sln
 if errorlevel 1 exit 1
 
-dir
-dir bin
-dir include
-dir lib
+REM For debugging Purposes, you may want to list the files in the 3 important directories
+REM dir
+REM dir bin
+REM dir include
+REM dir lib
+
+REM Note we renamed jpegicc and tifficc to match their linux counterparts
+REM That existed in conda-forge before the windows versions.
 
 COPY bin\jpegicc.exe  %LIBRARY_BIN%\jpgicc.exe
 COPY bin\tifficc.exe  %LIBRARY_BIN%\tificc.exe
@@ -27,22 +29,3 @@ COPY bin\lcms2.lib    %LIBRARY_LIB%\lcms2.lib
 
 COPY include\lcms2.h         %LIBRARY_INC%\lcms2.h
 COPY include\lcms2_plugin.h  %LIBRARY_INC%\lcms2_plugin.h
-
-
-REM COPY %RECIPE_DIR%\CMakeLists.txt %SRC_DIR%\CMakeLists.txt
-REM mkdir build
-REM cd build
-
-REM cmake -G "NMake Makefiles" ^
-REM       -DBUILD_SHARED_LIBS="1" ^
-REM       -DCMAKE_BUILD_TYPE="Release" ^
-REM       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
-REM       ..
-
-REM if errorlevel 1 exit 1
-
-REM nmake
-REM if errorlevel 1 exit 1
-
-REM nmake install
-REM if errorlevel 1 exit 1
