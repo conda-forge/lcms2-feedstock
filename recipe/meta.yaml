@@ -9,7 +9,6 @@ source:
   url: https://ayera.dl.sourceforge.net/project/lcms/lcms/{{ version }}/lcms2-{{ version }}.tar.gz
   sha256: 48c6fdf98396fa245ed86e622028caf49b96fa22f3e5734f853f806fbc8e7d20
   patches:
-    # - remove_library_directive_win.patch  # [win]
     - windows_linux_compat.patch          # [win]
 
 build:
