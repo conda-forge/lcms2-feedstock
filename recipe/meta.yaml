@@ -8,31 +8,36 @@ package:
 source:
   url: https://ayera.dl.sourceforge.net/project/lcms/lcms/{{ version }}/lcms2-{{ version }}.tar.gz
   sha256: 48c6fdf98396fa245ed86e622028caf49b96fa22f3e5734f853f806fbc8e7d20
+  patches:
+    - windows_linux_compat.patch          # [win]
 
 build:
-  number: 1
-  skip: True  # [win]
+  number: 2
+  skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - make
+    - make  # [not win]
   host:
     - jpeg
     - libtiff
 
 test:
   commands:
-    - test -f ${PREFIX}/include/lcms2.h
-    - test -f ${PREFIX}/lib/liblcms2.a
-    - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT}
+    - test -f ${PREFIX}/include/lcms2.h  # [not win]
+    - test -f ${PREFIX}/lib/liblcms2.a  # [not win]
+    - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT}  # [not win]
     - jpgicc
     - tificc
     - linkicc
     - transicc
     - psicc
+    - if not exist %LIBRARY_INC%\\lcms2.h exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\lcms2.lib exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\\lcms2.dll exit 1  # [win]
 
 about:
   home: http://www.littlecms.com/
@@ -44,3 +49,4 @@ about:
 extra:
   recipe-maintainers:
     - isuruf
+    - hmaarrfk
