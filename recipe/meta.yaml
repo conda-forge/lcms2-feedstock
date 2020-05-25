@@ -12,7 +12,7 @@ source:
     - windows_linux_compat.patch          # [win]
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
@@ -36,6 +36,7 @@ test:
     - transicc
     - psicc
     - if not exist %LIBRARY_INC%\\lcms2.h exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\lcms2_static.lib exit 1  # [win]
     - if not exist %LIBRARY_LIB%\\lcms2.lib exit 1  # [win]
     - if not exist %LIBRARY_BIN%\\lcms2.dll exit 1  # [win]
 
