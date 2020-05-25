@@ -27,5 +27,7 @@ COPY bin\lcms2.dll    %LIBRARY_BIN%\lcms2.dll
 
 COPY bin\lcms2.lib    %LIBRARY_LIB%\lcms2.lib
 
+COPY Lib\MS\lcms2_static.lib %LIBRARY_LIB%\lcms2_static.lib
+
 COPY include\lcms2.h         %LIBRARY_INC%\lcms2.h
 COPY include\lcms2_plugin.h  %LIBRARY_INC%\lcms2_plugin.h
