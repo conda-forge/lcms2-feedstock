@@ -1,5 +1,5 @@
 {% set name = "lcms2" %}
-{% set version = "2.9" %}
+{% set version = "2.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://ayera.dl.sourceforge.net/project/lcms/lcms/{{ version }}/lcms2-{{ version }}.tar.gz
-  sha256: 48c6fdf98396fa245ed86e622028caf49b96fa22f3e5734f853f806fbc8e7d20
+  sha256: dc49b9c8e4d7cdff376040571a722902b682a795bf92985a85b48854c270772e
   patches:
     - windows_linux_compat.patch          # [win]
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
@@ -44,7 +44,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: COPYING
-  summary: 'Open Source Color Management Engine'
+  summary: Open Source Color Management Engine
 
 extra:
   recipe-maintainers:
