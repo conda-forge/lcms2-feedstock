@@ -6,13 +6,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://ayera.dl.sourceforge.net/project/lcms/lcms/{{ version }}/lcms2-{{ version }}.tar.gz
-  sha256: dc49b9c8e4d7cdff376040571a722902b682a795bf92985a85b48854c270772e
+  url: https://github.com/mm2/Little-CMS/archive/{{ version }}.tar.gz
+  sha256: 478c9c3938d7a91b1171de4616f8b04308a8676d73eadc19505b7ace41327f28
   patches:
     - windows_linux_compat.patch          # [win]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
