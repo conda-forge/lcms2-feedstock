@@ -1,9 +1,15 @@
 c_compiler:
-- vs2017
+- gcc
+c_compiler_version:
+- '7'
+cdt_name:
+- cos6
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
+docker_image:
+- condaforge/linux-anvil-comp7
 jpeg:
 - '9'
 libtiff:
@@ -13,5 +19,5 @@ pin_run_as_build:
     max_pin: x
   libtiff:
     max_pin: x
-vc:
-- '14'
+target_platform:
+- linux-64
