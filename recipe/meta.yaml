@@ -1,5 +1,5 @@
 {% set name = "lcms2" %}
-{% set version = "2.11" %}
+{% set version = "2.12" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/mm2/Little-CMS/archive/{{ version }}.tar.gz
-  sha256: 478c9c3938d7a91b1171de4616f8b04308a8676d73eadc19505b7ace41327f28
+  sha256: e501f1482fc424550ef3abbf86bf1c66090e1661249e89552d39ed5bf935df66
   patches:
     - windows_linux_compat.patch          # [win]
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}

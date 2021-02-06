@@ -7,7 +7,7 @@ channel_targets:
 jpeg:
 - '9'
 libtiff:
-- 4.1.0
+- '4'
 pin_run_as_build:
   jpeg:
     max_pin: x
