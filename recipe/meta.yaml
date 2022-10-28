@@ -7,13 +7,12 @@ package:
 
 source:
   url: https://github.com/mm2/Little-CMS/releases/download/lcms{{ version }}/lcms2-{{ version }}.tar.gz
-  sha256: e501f1482fc424550ef3abbf86bf1c66090e1661249e89552d39ed5bf935df66
+  sha256: d473e796e7b27c5af01bd6d1552d42b45b43457e7182ce9903f38bb748203b88
   patches:
     - windows_linux_compat.patch          # [win]
 
 build:
   number: 0
-  skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
 
@@ -29,7 +28,7 @@ requirements:
 test:
   commands:
     - test -f ${PREFIX}/include/lcms2.h  # [not win]
-    - test -f ${PREFIX}/lib/liblcms2.a  # [not win]
+    - test ! -f ${PREFIX}/lib/liblcms2.a  # [not win]
     - test -f ${PREFIX}/lib/liblcms2${SHLIB_EXT}  # [not win]
     - jpgicc
     - tificc
