@@ -1,11 +1,11 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '9'
+- '10'
 cdt_name:
 - cos7
 channel_sources:
-- conda-forge,defaults
+- conda-forge
 channel_targets:
 - conda-forge main
 docker_image:
@@ -14,10 +14,5 @@ jpeg:
 - '9'
 libtiff:
 - '4'
-pin_run_as_build:
-  jpeg:
-    max_pin: x
-  libtiff:
-    max_pin: x
 target_platform:
 - linux-ppc64le
