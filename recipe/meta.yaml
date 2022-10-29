@@ -22,7 +22,6 @@ requirements:
   host:
     - jpeg
     - libtiff
-    - zlib
 
 test:
   commands:
