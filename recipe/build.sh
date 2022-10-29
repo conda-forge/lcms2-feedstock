@@ -9,7 +9,7 @@ cp $BUILD_PREFIX/share/libtool/build-aux/config.* .
     --with-jpeg=$PREFIX
 
 make -j${CPU_COUNT}
+make install
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
 make check
 fi
-make install
