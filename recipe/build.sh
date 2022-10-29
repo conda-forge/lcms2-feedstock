@@ -9,6 +9,9 @@ cp $BUILD_PREFIX/share/libtool/build-aux/config.* .
     --with-jpeg=$PREFIX
 
 make -j${CPU_COUNT}
+# 202210 - hmaarrfk
+# Without installing before make check, it seemed that
+# make check would fail on OSX-64bit
 make install
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
 make check
