@@ -1,5 +1,5 @@
 {% set name = "lcms2" %}
-{% set version = "2.13.1" %}
+{% set version = "2.14" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/mm2/Little-CMS/releases/download/lcms{{ version }}/lcms2-{{ version }}.tar.gz
-  sha256: d473e796e7b27c5af01bd6d1552d42b45b43457e7182ce9903f38bb748203b88
+  sha256: 28474ea6f6591c4d4cee972123587001a4e6e353412a41b3e9e82219818d5740
 
 build:
   number: 0
