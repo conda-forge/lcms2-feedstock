@@ -7,6 +7,6 @@ channel_targets:
 jpeg:
 - '9'
 libtiff:
-- '4'
+- '4.5'
 target_platform:
 - win-64
