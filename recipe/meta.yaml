@@ -10,7 +10,7 @@ source:
   sha256: b20cbcbd0f503433be2a4e81462106fa61050a35074dc24a4e356792d971ab39
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("lcms2") }}
 
@@ -20,7 +20,7 @@ requirements:
     - {{ compiler('c') }}
     - make  # [not win]
   host:
-    - jpeg
+    - libjpeg-turbo
     - libtiff
 
 test:
