@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/mm2/Little-CMS/releases/download/lcms{{ version }}/lcms2-{{ version }}.tar.gz
   sha256: b20cbcbd0f503433be2a4e81462106fa61050a35074dc24a4e356792d971ab39
+  patches:
+    - win_jpegturbo.patch
 
 build:
   number: 1
