@@ -8,8 +8,8 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-jpeg:
-- '9'
+libjpeg_turbo:
+- 2.1.5
 libtiff:
 - '4.5'
 macos_machine:
