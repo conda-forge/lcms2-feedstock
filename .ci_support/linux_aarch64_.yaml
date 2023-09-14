@@ -3,7 +3,7 @@ BUILD:
 c_compiler:
 - gcc
 c_compiler_version:
-- '11'
+- '12'
 cdt_arch:
 - aarch64
 cdt_name:
@@ -17,6 +17,6 @@ docker_image:
 libjpeg_turbo:
 - 2.1.5
 libtiff:
-- '4.5'
+- '4.6'
 target_platform:
 - linux-aarch64
