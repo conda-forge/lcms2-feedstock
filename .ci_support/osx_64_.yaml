@@ -9,7 +9,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 libjpeg_turbo:
-- 2.1.5
+- '3'
 libtiff:
 - '4.6'
 macos_machine:
