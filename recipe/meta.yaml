@@ -43,7 +43,7 @@ about:
   home: http://www.littlecms.com/
   license: MIT
   license_family: MIT
-  license_file: COPYING
+  license_file: LICENSE
   summary: Open Source Color Management Engine
 
 extra:
