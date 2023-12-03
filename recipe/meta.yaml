@@ -1,5 +1,5 @@
 {% set name = "lcms2" %}
-{% set version = "2.15" %}
+{% set version = "2.16" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/mm2/Little-CMS/releases/download/lcms{{ version }}/lcms2-{{ version }}.tar.gz
-  sha256: b20cbcbd0f503433be2a4e81462106fa61050a35074dc24a4e356792d971ab39
+  sha256: d873d34ad8b9b4cea010631f1a6228d2087475e4dc5e763eb81acc23d9d45a51
   patches:
     - win_jpegturbo.patch
 
 build:
-  number: 3
+  number: 0
   run_exports:
     - {{ pin_subpackage("lcms2") }}
 
