@@ -20,7 +20,7 @@ requirements:
   build:
     - libtool  # [unix]
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - {{ stdlib('c') }}
     - make  # [not win]
   host:
     - libjpeg-turbo
