@@ -5,7 +5,7 @@ msbuild ^
   /p:Configuration=Release ^
   /p:AdditionalIncludeDirectories=%LIBRARY_INC% ^
   /p:AdditionalDependencies=/LIBPATH:%LIBRARY_LIB% ^
-  Projects\VC2019\lcms2.sln
+  Projects\VC2022\lcms2.sln
 if errorlevel 1 exit 1
 
 REM For debugging Purposes, you may want to list the files in the 3 important directories
