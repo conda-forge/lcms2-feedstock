@@ -1,8 +1,51 @@
-diff --git a/Projects/VC2019/jpegicc/jpegicc.vcxproj b/Projects/VC2019/jpegicc/jpegicc.vcxproj
-index 584683b..b5a3ce9 100644
---- a/Projects/VC2019/jpegicc/jpegicc.vcxproj
-+++ b/Projects/VC2019/jpegicc/jpegicc.vcxproj
-@@ -150,7 +150,7 @@
+diff --git a/Projects/VC2022/fuzzers/fuzzers.vcxproj b/Projects/VC2022/fuzzers/fuzzers.vcxproj
+index 2c10e6a..cbbadc3 100644
+--- a/Projects/VC2022/fuzzers/fuzzers.vcxproj
++++ b/Projects/VC2022/fuzzers/fuzzers.vcxproj
+@@ -100,6 +100,7 @@
+   </PropertyGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <ClCompile>
++      <AdditionalIncludeDirectories>../../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <WarningLevel>Level3</WarningLevel>
+       <SDLCheck>true</SDLCheck>
+       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+@@ -112,6 +113,7 @@
+   </ItemDefinitionGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+     <ClCompile>
++      <AdditionalIncludeDirectories>../../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <WarningLevel>Level3</WarningLevel>
+       <FunctionLevelLinking>true</FunctionLevelLinking>
+       <IntrinsicFunctions>true</IntrinsicFunctions>
+@@ -128,6 +130,7 @@
+   </ItemDefinitionGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+     <ClCompile>
++      <AdditionalIncludeDirectories>../../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <WarningLevel>Level3</WarningLevel>
+       <SDLCheck>true</SDLCheck>
+       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+@@ -140,6 +143,7 @@
+   </ItemDefinitionGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+     <ClCompile>
++      <AdditionalIncludeDirectories>../../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <WarningLevel>Level3</WarningLevel>
+       <FunctionLevelLinking>true</FunctionLevelLinking>
+       <IntrinsicFunctions>true</IntrinsicFunctions>
+@@ -165,4 +169,4 @@
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+   <ImportGroup Label="ExtensionTargets">
+   </ImportGroup>
+-</Project>
+\ No newline at end of file
++</Project>
+diff --git a/Projects/VC2022/jpegicc/jpegicc.vcxproj b/Projects/VC2022/jpegicc/jpegicc.vcxproj
+index c4d7866..d0e2279 100644
+--- a/Projects/VC2022/jpegicc/jpegicc.vcxproj
++++ b/Projects/VC2022/jpegicc/jpegicc.vcxproj
+@@ -154,7 +154,7 @@
        <MultiProcessorCompilation>true</MultiProcessorCompilation>
      </ClCompile>
      <Link>
@@ -11,7 +54,7 @@ index 584683b..b5a3ce9 100644
        <GenerateDebugInformation>true</GenerateDebugInformation>
        <SubSystem>Console</SubSystem>
        <TargetMachine>MachineX86</TargetMachine>
-@@ -172,7 +172,7 @@
+@@ -176,7 +176,7 @@
        <MultiProcessorCompilation>true</MultiProcessorCompilation>
      </ClCompile>
      <Link>
@@ -20,7 +63,7 @@ index 584683b..b5a3ce9 100644
        <GenerateDebugInformation>true</GenerateDebugInformation>
        <SubSystem>Console</SubSystem>
        <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-@@ -192,7 +192,7 @@
+@@ -196,7 +196,7 @@
        <MultiProcessorCompilation>true</MultiProcessorCompilation>
      </ClCompile>
      <Link>
@@ -29,7 +72,7 @@ index 584683b..b5a3ce9 100644
        <GenerateDebugInformation>true</GenerateDebugInformation>
        <SubSystem>Console</SubSystem>
        <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-@@ -217,7 +217,7 @@
+@@ -221,7 +221,7 @@
        <BrowseInformation>false</BrowseInformation>
      </ClCompile>
      <Link>
@@ -38,7 +81,7 @@ index 584683b..b5a3ce9 100644
        <GenerateDebugInformation>true</GenerateDebugInformation>
        <SubSystem>Console</SubSystem>
        <OptimizeReferences>true</OptimizeReferences>
-@@ -248,7 +248,7 @@
+@@ -252,7 +252,7 @@
        <BrowseInformation>false</BrowseInformation>
      </ClCompile>
      <Link>
@@ -47,7 +90,7 @@ index 584683b..b5a3ce9 100644
        <GenerateDebugInformation>true</GenerateDebugInformation>
        <SubSystem>Console</SubSystem>
        <OptimizeReferences>true</OptimizeReferences>
-@@ -277,7 +277,7 @@
+@@ -281,7 +281,7 @@
        <MultiProcessorCompilation>true</MultiProcessorCompilation>
      </ClCompile>
      <Link>
@@ -56,3 +99,57 @@ index 584683b..b5a3ce9 100644
        <GenerateDebugInformation>true</GenerateDebugInformation>
        <SubSystem>Console</SubSystem>
        <OptimizeReferences>true</OptimizeReferences>
+@@ -304,4 +304,4 @@
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+   <ImportGroup Label="ExtensionTargets">
+   </ImportGroup>
+-</Project>
+\ No newline at end of file
++</Project>
+diff --git a/Projects/VC2022/tifficc/tifficc.vcxproj b/Projects/VC2022/tifficc/tifficc.vcxproj
+index 8c72fca..df0369e 100644
+--- a/Projects/VC2022/tifficc/tifficc.vcxproj
++++ b/Projects/VC2022/tifficc/tifficc.vcxproj
+@@ -154,7 +154,7 @@
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+     </ClCompile>
+     <Link>
+-      <AdditionalDependencies>tiff.lib;jpeg-static.lib;zlibstatic.lib;webp.lib;webpdecoder.lib;webpdemux.lib;webpmux.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>tiff.lib;jpeg-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <SubSystem>Console</SubSystem>
+       <TargetMachine>MachineX86</TargetMachine>
+@@ -196,7 +196,7 @@
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+     </ClCompile>
+     <Link>
+-      <AdditionalDependencies>tiff.lib;jpeg-static.lib;zlibstatic.lib;webp.lib;webpdecoder.lib;webpdemux.lib;webpmux.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>tiff.lib;jpeg-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <SubSystem>Console</SubSystem>
+       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+@@ -218,7 +218,7 @@
+       <BrowseInformation>false</BrowseInformation>
+     </ClCompile>
+     <Link>
+-      <AdditionalDependencies>tiff.lib;jpeg-static.lib;zlibstatic.lib;webp.lib;webpdecoder.lib;webpdemux.lib;webpmux.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>tiff.lib;jpeg-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <SubSystem>Console</SubSystem>
+       <OptimizeReferences>true</OptimizeReferences>
+@@ -272,7 +272,7 @@
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+     </ClCompile>
+     <Link>
+-      <AdditionalDependencies>tiff.lib;jpeg-static.lib;zlibstatic.lib;webp.lib;webpdecoder.lib;webpdemux.lib;webpmux.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>tiff.lib;jpeg-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <SubSystem>Console</SubSystem>
+       <OptimizeReferences>true</OptimizeReferences>
+@@ -297,4 +297,4 @@
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+   <ImportGroup Label="ExtensionTargets">
+   </ImportGroup>
+-</Project>
+\ No newline at end of file
++</Project>
