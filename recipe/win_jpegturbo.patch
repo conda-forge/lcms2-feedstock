@@ -1,3 +1,39 @@
+diff --git a/Projects/VC2022/fuzzers/fuzzers.vcxproj b/Projects/VC2022/fuzzers/fuzzers.vcxproj
+index 2c10e6a..2c3ee57 100644
+--- a/Projects/VC2022/fuzzers/fuzzers.vcxproj
++++ b/Projects/VC2022/fuzzers/fuzzers.vcxproj
+@@ -100,6 +100,7 @@
+   </PropertyGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <ClCompile>
++      <AdditionalIncludeDirectories>../../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <WarningLevel>Level3</WarningLevel>
+       <SDLCheck>true</SDLCheck>
+       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+@@ -112,6 +113,7 @@
+   </ItemDefinitionGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+     <ClCompile>
++      <AdditionalIncludeDirectories>../../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <WarningLevel>Level3</WarningLevel>
+       <FunctionLevelLinking>true</FunctionLevelLinking>
+       <IntrinsicFunctions>true</IntrinsicFunctions>
+@@ -128,6 +130,7 @@
+   </ItemDefinitionGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+     <ClCompile>
++      <AdditionalIncludeDirectories>../../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <WarningLevel>Level3</WarningLevel>
+       <SDLCheck>true</SDLCheck>
+       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+@@ -140,6 +143,7 @@
+   </ItemDefinitionGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+     <ClCompile>
++      <AdditionalIncludeDirectories>../../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <WarningLevel>Level3</WarningLevel>
+       <FunctionLevelLinking>true</FunctionLevelLinking>
+       <IntrinsicFunctions>true</IntrinsicFunctions>
 diff --git a/Projects/VC2022/jpegicc/jpegicc.vcxproj b/Projects/VC2022/jpegicc/jpegicc.vcxproj
 index c4d7866..c17aaf2 100644
 --- a/Projects/VC2022/jpegicc/jpegicc.vcxproj
