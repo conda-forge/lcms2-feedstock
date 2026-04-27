@@ -1,5 +1,5 @@
 diff --git a/Projects/VC2022/fuzzers/fuzzers.vcxproj b/Projects/VC2022/fuzzers/fuzzers.vcxproj
-index 2c10e6a..cbbadc3 100644
+index 2c10e6a..2c3ee57 100644
 --- a/Projects/VC2022/fuzzers/fuzzers.vcxproj
 +++ b/Projects/VC2022/fuzzers/fuzzers.vcxproj
 @@ -100,6 +100,7 @@
@@ -34,15 +34,8 @@ index 2c10e6a..cbbadc3 100644
        <WarningLevel>Level3</WarningLevel>
        <FunctionLevelLinking>true</FunctionLevelLinking>
        <IntrinsicFunctions>true</IntrinsicFunctions>
-@@ -165,4 +169,4 @@
-   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-   <ImportGroup Label="ExtensionTargets">
-   </ImportGroup>
--</Project>
-\ No newline at end of file
-+</Project>
 diff --git a/Projects/VC2022/jpegicc/jpegicc.vcxproj b/Projects/VC2022/jpegicc/jpegicc.vcxproj
-index c4d7866..d0e2279 100644
+index c4d7866..c17aaf2 100644
 --- a/Projects/VC2022/jpegicc/jpegicc.vcxproj
 +++ b/Projects/VC2022/jpegicc/jpegicc.vcxproj
 @@ -154,7 +154,7 @@
@@ -99,15 +92,8 @@ index c4d7866..d0e2279 100644
        <GenerateDebugInformation>true</GenerateDebugInformation>
        <SubSystem>Console</SubSystem>
        <OptimizeReferences>true</OptimizeReferences>
-@@ -304,4 +304,4 @@
-   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-   <ImportGroup Label="ExtensionTargets">
-   </ImportGroup>
--</Project>
-\ No newline at end of file
-+</Project>
 diff --git a/Projects/VC2022/tifficc/tifficc.vcxproj b/Projects/VC2022/tifficc/tifficc.vcxproj
-index 8c72fca..df0369e 100644
+index f1dfa29..bdb75df 100644
 --- a/Projects/VC2022/tifficc/tifficc.vcxproj
 +++ b/Projects/VC2022/tifficc/tifficc.vcxproj
 @@ -154,7 +154,7 @@
@@ -123,8 +109,8 @@ index 8c72fca..df0369e 100644
        <MultiProcessorCompilation>true</MultiProcessorCompilation>
      </ClCompile>
      <Link>
--      <AdditionalDependencies>tiff.lib;jpeg-static.lib;zlibstatic.lib;webp.lib;webpdecoder.lib;webpdemux.lib;webpmux.lib;%(AdditionalDependencies)</AdditionalDependencies>
-+      <AdditionalDependencies>tiff.lib;jpeg-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+-      <AdditionalDependencies>tiffd.lib;jpeg-static.lib;zlibstaticd.lib;libwebp.lib;libwebpdecoder.lib;libwebpdemux.lib;libwebpmux.lib;libsharpyuv.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>tiffd.lib;jpeg-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
        <GenerateDebugInformation>true</GenerateDebugInformation>
        <SubSystem>Console</SubSystem>
        <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
@@ -146,10 +132,3 @@ index 8c72fca..df0369e 100644
        <GenerateDebugInformation>true</GenerateDebugInformation>
        <SubSystem>Console</SubSystem>
        <OptimizeReferences>true</OptimizeReferences>
-@@ -297,4 +297,4 @@
-   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-   <ImportGroup Label="ExtensionTargets">
-   </ImportGroup>
--</Project>
-\ No newline at end of file
-+</Project>
