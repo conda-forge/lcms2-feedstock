@@ -1,17 +1,11 @@
 c_compiler:
-- gcc
-c_compiler_version:
-- '15'
+- vs2022
 c_stdlib:
-- sysroot
-c_stdlib_version:
-- '2.17'
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-docker_image:
-- quay.io/condaforge/linux-anvil-aarch64:alma10
 lcms2:
 - '2'
 libjpeg_turbo:
@@ -19,4 +13,4 @@ libjpeg_turbo:
 libtiff:
 - '4.7'
 target_platform:
-- linux-aarch64
+- win-arm64
