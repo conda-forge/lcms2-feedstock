@@ -9,6 +9,7 @@ source:
   sha256: bfc54f7bab59fbc921012014a8032e4cba4abd46db47d46b76416a8c0b2815c8
   patches:
     - win_jpegturbo.patch
+    - lcms-sln-winarm64.patch
 
 build:
   number: 1
