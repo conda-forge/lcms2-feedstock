@@ -1,7 +1,8 @@
 set UseEnv=true
-
+set msbuildplatform=x64
+if %target_platform%==win-arm64 set msbuildplatform=ARM64
 msbuild ^
-  /p:Platform=x64 ^
+  /p:Platform=%msbuildplatform% ^
   /p:Configuration=Release ^
   /p:AdditionalIncludeDirectories=%LIBRARY_INC% ^
   /p:AdditionalDependencies=/LIBPATH:%LIBRARY_LIB% ^
