@@ -1,7 +1,13 @@
 set UseEnv=true
-
+set msbuildplatform=x64
+if %target_platform%==win-arm64 set msbuildplatform=ARM64
+REM ARM64: build only the shipped DLL and utilities (plus their dependencies).
+REM The unshipped fuzzers and fast-float plugin do not build for this target.
+set "msbuildtargets="
+if %target_platform%==win-arm64 set "msbuildtargets=/target:lcms2_DLL;jpegicc;tifficc;linkicc;transicc;psicc"
 msbuild ^
-  /p:Platform=x64 ^
+  %msbuildtargets% ^
+  /p:Platform=%msbuildplatform% ^
   /p:Configuration=Release ^
   /p:AdditionalIncludeDirectories=%LIBRARY_INC% ^
   /p:AdditionalDependencies=/LIBPATH:%LIBRARY_LIB% ^
